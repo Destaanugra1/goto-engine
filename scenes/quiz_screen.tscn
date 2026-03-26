@@ -1,87 +1,273 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://brhb5asrq7333"]
 
-[ext_resource type="Script" path="res://scripts/quiz_screen.gd" id="1"]
+[ext_resource type="Script" uid="uid://b12q68q4x6jgs" path="res://scenes/quiz_screen.gd" id="1_782hx"]
+[ext_resource type="Texture2D" uid="uid://b4aodyex76w5n" path="res://assets/sprites/heart_32x32.png" id="2_5gnx8"]
+[ext_resource type="FontFile" uid="uid://bm0sp0v62upr3" path="res://assets/fonts/PixelOperator8.ttf" id="2_782hx"]
+[ext_resource type="Texture2D" uid="uid://iy6u12my1wnl" path="res://assets/player/character_1/Character-NoWeapon-Idle-01.png" id="3_782hx"]
 
-[node name="QuizScreen" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pn0l"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.9607843, 0.9607843, 0.9607843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p30vq"]
+bg_color = Color(0.050980393, 0.105882354, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18039216, 0.76862746, 0.7137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1prk2"]
+bg_color = Color(0.023529412, 0.050980393, 0.09411765, 1)
+
+[node name="QuizScreen" type="Control" unique_id=1215866481]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("1")
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_782hx")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1176780275]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.97, 0.93, 0.78, 1)
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.105882354, 0.16470589, 1)
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 210.0
-offset_top = 75.0
-offset_right = 750.0
-offset_bottom = 455.0
+[node name="Question Panel" type="Panel" parent="." unique_id=2009146734]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 129.0
+offset_right = 747.0
+offset_bottom = 289.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3pn0l")
 
-[node name="Title" type="Label" parent="Panel"]
-offset_left = 130.0
-offset_top = 28.0
-offset_right = 410.0
-offset_bottom = 72.0
-horizontal_alignment = 1
+[node name="Title" type="Label" parent="Question Panel" unique_id=11904621]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "KERJAKAN SOAL"
-
-[node name="Question" type="Label" parent="Panel"]
-offset_left = 110.0
-offset_top = 95.0
-offset_right = 430.0
-offset_bottom = 150.0
 horizontal_alignment = 1
+
+[node name="Question" type="Label" parent="Question Panel" unique_id=557829663]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 80.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "8 + 4 = ?"
+horizontal_alignment = 1
 
-[node name="A" type="Button" parent="Panel"]
-offset_left = 100.0
-offset_top = 190.0
-offset_right = 250.0
-offset_bottom = 250.0
-text = "12"
-
-[node name="B" type="Button" parent="Panel"]
-offset_left = 290.0
-offset_top = 190.0
-offset_right = 440.0
-offset_bottom = 250.0
-text = "10"
-
-[node name="C" type="Button" parent="Panel"]
-offset_left = 100.0
-offset_top = 270.0
-offset_right = 250.0
-offset_bottom = 330.0
-text = "14"
-
-[node name="D" type="Button" parent="Panel"]
-offset_left = 290.0
-offset_top = 270.0
-offset_right = 440.0
-offset_bottom = 330.0
-text = "11"
-
-[node name="Feedback" type="Label" parent="Panel"]
+[node name="Feedback" type="Label" parent="Question Panel" unique_id=1033932961]
 visible = false
+layout_mode = 0
 offset_left = 90.0
 offset_top = 345.0
 offset_right = 450.0
 offset_bottom = 392.0
-horizontal_alignment = 1
 theme_override_font_sizes/font_size = 26
 text = "BENAR!"
+horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Panel"]
+[node name="ContinueButton" type="Button" parent="Question Panel" unique_id=1491531912]
 visible = false
+layout_mode = 0
 offset_left = 215.0
 offset_top = 310.0
 offset_right = 325.0
 offset_bottom = 350.0
 text = "LANJUT"
+
+[node name="GridContainer" type="GridContainer" parent="Question Panel" unique_id=2006508358]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -268.0
+offset_top = 183.0
+offset_right = 272.0
+offset_bottom = 323.0
+grow_horizontal = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="A" type="Button" parent="Question Panel/GridContainer" unique_id=1075408862]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_p30vq")
+text = "12"
+
+[node name="B" type="Button" parent="Question Panel/GridContainer" unique_id=1149523076]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_p30vq")
+text = "11"
+
+[node name="C" type="Button" parent="Question Panel/GridContainer" unique_id=1619730146]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_p30vq")
+text = "10"
+
+[node name="D" type="Button" parent="Question Panel/GridContainer" unique_id=820806952]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_p30vq")
+text = "9"
+
+[node name="TopBar" type="Panel" parent="." unique_id=1398355184]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 30.0
+offset_right = -30.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1prk2")
+
+[node name="Score" type="Label" parent="TopBar" unique_id=828167547]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -11.5
+offset_right = 139.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_782hx")
+text = "SCORE: 200"
+
+[node name="HeartContainer" type="HBoxContainer" parent="TopBar" unique_id=814247158]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -16.0
+offset_right = -13.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="TextureRect" type="TextureRect" parent="TopBar/HeartContainer" unique_id=1316812156]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_5gnx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="TopBar/HeartContainer" unique_id=1362736860]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_5gnx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="TopBar/HeartContainer" unique_id=353376574]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_5gnx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="TopBar" unique_id=1575580515]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -20.0
+offset_right = 35.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.83137256, 0.57254905, 1)
+
+[node name="Math" type="Label" parent="TopBar/ColorRect" unique_id=184396185]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -11.5
+offset_right = 24.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_782hx")
+text = "MATH"
+
+[node name="Character" type="Sprite2D" parent="." unique_id=240156340]
+position = Vector2(116.00002, 265)
+scale = Vector2(5.611111, 5.48)
+texture = ExtResource("3_782hx")
+region_enabled = true
+region_rect = Rect2(217.6, 13.599991, 45.600006, 50.399994)
+
+[node name="Timer" type="ProgressBar" parent="." unique_id=795762794]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -192.5
+offset_right = 450.0
+offset_bottom = -165.5
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 30.0
+max_value = 30.0
+value = 30.0
+show_percentage = false
+
+[node name="TimeLabel" type="Label" parent="Timer" unique_id=55037368]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "30s"

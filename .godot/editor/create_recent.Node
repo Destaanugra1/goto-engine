@@ -1,2 +1,10 @@
+Label
+ColorRect
 Sprite2D
+GridContainer
+TextureRect
+HBoxContainer
+ProgressBar
+Panel
+TileMap
 Node2D
